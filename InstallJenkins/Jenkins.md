@@ -40,6 +40,7 @@ Before you begin, ensure you have:
    ```bash
    ssh -i "your-key.pem" ec2-user@your-ec2-public-ip
    ```
+   ![](Images/img2.png)
 
 2. Update the system packages:
    ```bash
