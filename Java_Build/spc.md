@@ -23,14 +23,15 @@ This guide provides detailed steps to set up and build a Java application using 
    - **Pipeline Plugin**
    - **Maven Integration Plugin**
 
+  ![](Images/img1.png)
+
 ### Step 2: Configure Tools
 1. Go to **Manage Jenkins** > **Global Tool Configuration**.
 2. Add the following tools:
    - **JDK:** Specify the installation path.
    - **Maven:** Set up Maven with the installation path.
 
-*Example Screenshot: (Add a screenshot of Jenkins Tool Configuration here)*
-
+   ![](Images/img2.png)
 ---
 
 ## Creating the Pipeline
@@ -40,13 +41,17 @@ This guide provides detailed steps to set up and build a Java application using 
 2. Select **Pipeline** and provide a name for the job.
 3. Click **OK**.
 
+    ![](Images/img3.png)
+  
 ### Step 2: Configure the Pipeline
 1. Under the **Pipeline** section, choose:
    - **Pipeline script from SCM**.
    - **Git** as the source control management tool.
    - Provide the repository URL and the branch name.
+   - set maven as shown in the picture 
+   - Apply and save
 
-*Example Screenshot: (Add a screenshot of Pipeline Configuration here)*
+   ![](Images/img4.png)
 
 ---
 
@@ -64,7 +69,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/your-repo/java-app.git', branch: 'main'
+                git url: 'https://github.com/spring-projects/spring-petclinic.git', branch: 'main'
             }
         }
         stage('Build') {
@@ -85,6 +90,7 @@ pipeline {
     }
 }
 ```
+  ![](Images/img5.png)
 
 ### Explanation:
 - **`agent any`**: Uses any available Jenkins agent.
@@ -102,7 +108,8 @@ pipeline {
 2. Monitor the build progress in the **Build History**.
 3. Check the **Console Output** for logs.
 
-*Example Screenshot: (Add a screenshot of a successful build here)*
+  ![](Images/img6.png)
+  ![](Images/img7.png)  
 
 ---
 
@@ -111,8 +118,7 @@ pipeline {
 1. Check the **Workspace** for build artifacts (e.g., `.jar` files).
 2. View test results under the **Test Results** tab if available.
 
-*Example Screenshot: (Add a screenshot of build artifacts here)*
-
+  ![](Images/img8.png)  
 ---
 
 ## Troubleshooting
@@ -123,3 +129,13 @@ pipeline {
 
 #### Issue: Git repository not accessible
 ***Solution:*** Check credentials and repository permissions.
+
+## Conclusion
+
+This guide demonstrates how to set up and build a Java application using Jenkins. By following the steps outlined, you have:
+
+- Configured Jenkins with the necessary tools and plugins.
+- Set up a pipeline to automate the build, test, and package process.
+- Troubleshot common issues encountered during the setup.
+
+Building Java applications using Jenkins pipelines simplifies development workflows, ensuring consistency and reliability. Feel free to expand this pipeline by adding automated deployment steps or integrating with other tools to enhance your DevOps capabilities.
