@@ -1,1 +1,1 @@
-![](./InstallJenkins/Jenkins.md)
+![](./InstallJenkins/Images/Jenkins.jpg)
