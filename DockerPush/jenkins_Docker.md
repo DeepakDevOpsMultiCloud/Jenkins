@@ -22,8 +22,9 @@ This project demonstrates how to build a Java application using Jenkins, create 
   - `AmazonEC2FullAccess`
 - 2 EC2 instances:
   - Jenkins Master
-- Docker installed on master
-
+  - Jenkins Worker
+- Docker installed on Worker
+- Jenkins agent configured via SSH from master
 
 ---
 
