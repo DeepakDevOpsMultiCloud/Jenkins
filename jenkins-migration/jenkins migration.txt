@@ -56,4 +56,18 @@ Troubleshooting
 
 
 
+----------------
+                 Controller
+              (Jenkins Server)
+                     │
+      ┌──────────────┼──────────────┐
+      │              │              │
+ Built-in Node    Agent-1       Agent-2
+  Executors=1    Executors=2   Executors=4
 
+      │              │              │
+     Job A       Job B,C         Job D,E,F,G
+
+
+
+     
