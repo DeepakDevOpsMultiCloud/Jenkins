@@ -38,4 +38,9 @@ Manage Jenkins
   → Configure
   → Number of Executors
 
-  
+how to check no.of executors from jenkins server 
+"nproc"
+
+
+
+
