@@ -43,4 +43,6 @@ how to check no.of executors from jenkins server
 
 
 
-
+what if a node termed as temperory offline ?
+Running jobs continue.
+New jobs won't start on that agent.
