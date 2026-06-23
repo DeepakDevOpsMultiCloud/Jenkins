@@ -1,0 +1,73 @@
+pipeline {
+
+
+
+    agent {
+        label "linux-node"
+    }
+
+
+    
+    parameter {
+    
+    }
+    
+
+    tools {
+
+        maven "maven_3.8",
+        java "java_17"
+    }
+
+
+    environment {
+
+        AWS_ACCOUNT_ID = ""
+        AWS_REGION = ""
+        ECS_CLUSTER = ""
+        ECS_TD_FAMILY = ""
+        servicename = ""
+        AWS_ECR_REPO_NAME = ""
+        
+    }
+
+    stages {
+
+        stage(checkout) {
+            
+            steps {
+                echo "checkout"
+            }
+        }
+
+        stage(build) {
+            
+            steps {
+                echo "code build"
+            }
+        }
+
+        stage(test) {
+            
+            steps {
+                echo "testing"
+            }
+        }
+
+        stage(image build) {
+            
+            steps {
+                echo "docker image build -t"
+            }
+        }
+
+        stage(deploy) {
+            
+            steps {
+                echo "ecs service deploy"
+            }
+        }
+    
+    }
+
+}

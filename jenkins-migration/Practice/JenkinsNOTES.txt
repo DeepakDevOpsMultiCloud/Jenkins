@@ -1,0 +1,48 @@
+Types of Jenkins pipeline 
+
+1. Scripted Pipeline
+- Written entirely in Groovy code.
+- More flexible and powerful.
+- Suitable for complex workflows.
+
+
+2. Declarative Pipeline
+- Uses a predefined structure.
+- Easier to read, write, and maintain.
+- Recommended by Jenkins for most projects.
+
+
+Pipeline Syntax
+├── Scripted Pipeline
+└── Declarative Pipeline
+
+
+Jenkins Jobs
+├── Freestyle Project
+├── Pipeline
+├── Multibranch Pipeline
+├── Folder
+└── Organization Folder 
+
+
+
+In freestyle and folder type no sripted and declarative is present, because no pipeline is created. 
+no declaratvie pipeline can be created in freestyle project.
+
+
+
+
+
+| Job Type                 | Purpose                                                                                                                    |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
+| **Freestyle Project**    | Traditional Jenkins job configured through the UI. Suitable for simple build, test, or deployment tasks.                   
+| **Pipeline**             | a Jenkinsfile is used here , where it defines CI/CD workflows as code(Scripted or Declarative Pipeline).      |
+| **Folder**               | Organizes Jenkins jobs into logical groups and helps manage permissions.                                                  |
+| **Multibranch Pipeline** | Automatically scans branches in a Git repository and creates a separate pipeline for each branch.                      |
+| **Organization Folder**  | Scans an entire GitHub/GitLab/Bitbucket organization and automatically creates Multibranch Pipelines for all repositories. |
+
+
+
+
+
+
