@@ -70,4 +70,98 @@ Troubleshooting
 
 
 
-     
+
+
+pipeline {
+    agent any
+
+    parameters {
+        string(name: 'BRANCH', defaultValue: 'develop')
+        choice(name: 'ENV', choices: ['sit','uat','prod'])
+    }
+}
+
+
+--------------
+
+
+Jenkins Triggered
+        │
+        ▼
+Git Clone
+        │
+        ▼
+Maven Build
+(mvn clean package)
+        │
+        ▼
+target/*.jar created
+        │
+        ▼
+Docker Build
+(Dockerfile uses target/*.jar)
+        │
+        ▼
+Docker Image Created
+        │
+        ▼
+Docker Tag
+        │
+        ▼
+ECR Login
+        │
+        ▼
+Docker Push
+        │
+        ▼
+Image Stored in ECR
+        │
+        ▼
+Deployment Server Pulls Image
+        │
+        ▼
+Container Started
+
+
+
+------
+
+
+Jenkins Server
+│
+├── Workspace
+│   └── target/
+│       └── plantos-uptime-processor-1.0.jar
+│
+└── Docker Engine
+     │
+     └── Docker Image
+          └── /opt/
+               └── plantos-uptime-processor.jar    --------->   this is completely in Docker/ECS Container not in Jenkins server. 
+  
+
+------------------------
+example
+
+FROM eclipse-temurin:21
+LABEL maintainer="infinite-uptime.com"
+ADD  ./target/plantos-uptime-processor*.jar /opt/plantos-uptime-processor.jar
+
+EXPOSE 9307
+ENTRYPOINT ["java","-jar","/opt/plantos-uptime-processor.jar"]
+
+
+
+
+ECS Task Start
+      ↓
+Pull image from ECR
+      ↓
+Create container
+      ↓
+Read ENTRYPOINT
+      ↓
+Execute ENTRYPOINT
+
+
+

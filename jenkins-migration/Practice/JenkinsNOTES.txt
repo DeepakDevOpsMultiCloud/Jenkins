@@ -42,7 +42,59 @@ no declaratvie pipeline can be created in freestyle project.
 | **Organization Folder**  | Scans an entire GitHub/GitLab/Bitbucket organization and automatically creates Multibranch Pipelines for all repositories. |
 
 
+A workspace in Jenkins is simply the working directory on the Jenkins node where a job executes.
+
+/var/lib/jenkins/workspace/admin-api
+
+admin-api/
+├── pom.xml
+├── src/
+├── Dockerfile
+├── target/
+├── .git/
+└── build artifacts
+
+
+
+Workspace          -> /var/lib/jenkins/workspace/
+Docker Images      -> /var/lib/docker/
+Maven Cache        -> ~/.m2/repository/
+Jenkins Config     -> /var/lib/jenkins/jobs/
 
 
 
 
+GitHub
+   │
+   ▼
+Jenkins Workspace
+   │
+   ├── Source Code
+   │
+   ▼
+Maven Build
+   │
+   └── admin-api.jar   /target folder gets also created here
+   │
+   ▼
+Docker Build
+   │
+   └── Docker Image
+   │
+   ▼
+Push
+   │
+   ▼
+ECR Repository
+   │
+   ▼
+Task Definition Revision
+   │
+   ▼
+ECS Service Update
+   │
+   ▼
+New Containers Started
+   │
+   ▼
+Old Containers Stopped

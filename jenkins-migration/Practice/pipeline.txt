@@ -33,6 +33,28 @@ pipeline {
 
     stages {
 
+        stage(set build description) {
+
+            steps {
+                script {
+                    
+                }
+
+                
+            }
+
+
+        
+        }
+
+        stage(workspace cleanup) {
+            steps {
+             sh "cd /var/lib/jenkins/workspace/"
+             sh "rf -rf /admin-api/*"
+           }
+        }
+        
+
         stage(checkout) {
             
             steps {
